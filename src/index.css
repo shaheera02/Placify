@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .primary-btn {
+    @apply text-sm font-semibold lg:text-base border-[1px] border-black px-4 py-2 shadow-[5px_5px_0px_0px] hover:bg-black hover:text-white duration-300 hover:shadow-[5px_5px_0px_0px_#6c6c6c];
+  }
+
+  .job-trends {
+    @apply max-w-3xl mx-auto mt-10 p-6 bg-white shadow-md rounded-lg;
+  }
+
+  .job-trends h1 {
+    @apply text-3xl font-bold mb-6 text-center;
+  }
+
+  .job-trends input {
+    @apply w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+
+  .job-trends .error {
+    @apply text-red-500 text-sm mt-2;
+  }
+
+  .job-trends .results {
+    @apply mt-8;
+  }
+
+  .job-trends .insight-content {
+    @apply bg-gray-100 p-4 rounded-lg shadow-md;
+  }
+
+  .job-trends .insight-content h3.custom-h3 {
+    @apply text-lg font-semibold mb-2;
+  }
+
+  .job-trends .insight-content ul {
+    @apply list-disc pl-5 mb-2;
+  }
+
+  .job-trends .insight-content li {
+    @apply mb-1 text-gray-700;
+  }
+
+  .job-trends .insight-content strong {
+    @apply font-bold;
+  }
+
+  .job-trends .insight-content br {
+    @apply mb-2 block;
+  }
+  /* index.css */
+.card {
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.card h2 {
+  margin-bottom: 16px;
+}
+
+.card p {
+  margin: 0;
+}
+
+}
