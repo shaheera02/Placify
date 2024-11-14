@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
-import '../index.css'; 
+import '../index.css';
 
 GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.worker.min.js`;
 
@@ -19,7 +19,6 @@ const extractTextFromPDF = async (file) => {
   URL.revokeObjectURL(pdfUrl);
   return text;
 };
-
 
 const ResumeBuilder = () => {
   const [pdfFile, setPdfFile] = useState(null);
@@ -51,10 +50,18 @@ const ResumeBuilder = () => {
         
         **Role Looking For:**
         ${role}
-        You are an skilled ATS (Applicant Tracking System) scanner with a deep understanding of data science and ATS functionality, 
-your task is to evaluate the resume against the provided role. give me the percentage of match if the resume matches
-the role. First the output should come as percentage called ATS Score, Strengths, Areas for Improvement, Recommendations and then keywords missing and last final thoughts. give the headings in bold and bigger.
-      
+
+        As an advanced ATS scanner with knowledge of data science and ATS functionality, assess the resume for relevance to the specified role.
+        
+        **Analysis Structure**:
+        - **ATS Score**: A numeric percentage indicating the match between the resume and the role.
+        - **Strengths**: Key strengths based on skills, experience, and achievements.
+        - **Areas for Improvement**: Specific areas where the resume could be strengthened to match the role better.
+        - **Recommendations**: Tailored suggestions to improve the resume's alignment with the desired role.
+        - **Missing Keywords**: List of relevant keywords that were missing in the resume but are crucial for this role.
+        - **Final Thoughts**: Overall assessment and any additional feedback.
+        
+        Format each section with bold, large headings, and use bullet points or concise sentences where necessary.
       `;
 
       const response = await axios.post(
@@ -89,11 +96,11 @@ the role. First the output should come as percentage called ATS Score, Strengths
 
   const markdownToHtml = (markdown) => {
     let html = markdown
-      .replace(/## (.*?)\n/g, '<h3 class="custom-h3">$1</h3>')
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\*(.*?)\*/g, '<ul><li>$1</li></ul>')
-      .replace(/<\/ul>\s*<ul>/g, '')
-      .replace(/\n/g, '<br>');
+      .replace(/## (.*?)\n/g, '<h3 class="custom-h3">$1</h3>') // Format headers
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold formatting for strong emphasis
+      .replace(/\*(.*?)\*/g, '<ul><li>$1</li></ul>') // Bullet points for each * item
+      .replace(/<\/ul>\s*<ul>/g, '') // Clean up multiple bullet lists
+      .replace(/\n/g, '<br>'); // Line breaks for paragraph spacing
     return html;
   };
 

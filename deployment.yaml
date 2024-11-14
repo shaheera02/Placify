@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: placify-app
-        image: mansi2022/placify-app:latest  # The image you pushed
+        image: shaheera02/placify-app:latest  # The image you pushed
         ports:
         - containerPort: 8080  # The port your app is listening to inside the container
 ---
