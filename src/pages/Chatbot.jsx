@@ -19,7 +19,7 @@ const Chatbot = () => {
 
       try {
         const result = await axios.post(
-          "YOUR_API_ENDPOINT",
+          "API LINK",
           { prompt }
         );
 

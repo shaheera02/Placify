@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: placify-app
+spec:
+  replicas: 3  # Number of pods you want to run
+  selector:
+    matchLabels:
+      app: placify-app
+  template:
+    metadata:
+      labels:
+        app: placify-app
+    spec:
+      containers:
+      - name: placify-app
+        image: mansi2022/placify-app:latest  # The image you pushed
+        ports:
+        - containerPort: 8080  # The port your app is listening to inside the container
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: placify-app-service
+spec:
+  selector:
+    app: placify-app
+  ports:
+    - protocol: TCP
+      port: 80  # The port the service will expose to access your app
+      targetPort: 8080  # The port your app is running inside the container
+  type: LoadBalancer  # For external access (can be ClusterIP, NodePort, LoadBalancer)
