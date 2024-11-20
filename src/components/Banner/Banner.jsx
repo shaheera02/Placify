@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Banner1 from "../../assets/img1.png";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
@@ -27,7 +28,7 @@ const Banner = () => {
               whileInView="animate"
               className="text-4xl font-bold font-serif"
             >
-              Explore our comprehensive prep resources to boost your readiness
+              Unlock top job trends and stay ahead in your career
             </motion.h1>
             <motion.p
               variants={SlideUp(0.4)}
@@ -45,7 +46,7 @@ const Banner = () => {
                 whileInView="animate"
                 className="primary-btn bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c]"
               >
-                Discover Now
+              <Link to="/job">Discover Now</Link>
               </motion.button>
             </div>
           </div>

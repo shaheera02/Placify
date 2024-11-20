@@ -28,7 +28,7 @@ const Footer = () => {
               <h1 className="text-xl font-semibold">About us</h1>
               <ul className="text-sm space-y-4">
                 <li>
-                  <a href="#">Our Story</a>
+                  <a href="about">Our Story</a>
                 </li>
                 {/* <li>
                   <a href="#">Designer</a>
@@ -65,7 +65,7 @@ const Footer = () => {
             <ul className="text-base font-semibold space-y-4">
               <li className="flex items-center space-x-3">
                 <FaPhone />
-                <a href="#">+91 123456789</a>
+                <a href="#">+91 9123456789</a>
               </li>
               <li className="flex items-center space-x-3">
                 <LuMessageSquare />

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const NavLinks = [
   {
     id: 1,
-    title: "Homie",
+    title: "Home",
     link: "/",
   },{
     id: 2,
@@ -39,7 +39,10 @@ const Navbar = () => {
       >
         {/* Logo section */}
         <div className="flex items-center gap-3">
+          <a href="/" className="block">
           <img src={Logo} alt="logo" className="w-10" />
+          </a>
+
           <span className="text-2xl font-bold">Placify</span>
         </div>
         {/* Link section */}

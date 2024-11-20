@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Banner1 from "../../assets/img3.png";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
@@ -54,7 +55,8 @@ const Banner2 = () => {
                 whileInView="animate"
                 className="primary-btn bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c]"
               >
-                Dive in
+                
+                <Link to="/resume">Dive in</Link>
               </motion.button>
             </div>
           </div>

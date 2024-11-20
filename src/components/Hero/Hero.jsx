@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import HeroPng from "../../assets/img2.png";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
@@ -16,7 +17,7 @@ const Hero = () => {
               animate="animate"
               className="text-4xl font-bold font-serif"
             >
-              Streamlining Campus Placements
+              Streamlining Placements
             </motion.h1>
             <motion.p
               variants={SlideUp(0.5)}
@@ -33,7 +34,7 @@ const Hero = () => {
                 animate="animate"
                 className="primary-btn uppercase bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c]"
               >
-                Get started
+              <Link to="/job">Get started</Link>
               </motion.button>
               <motion.button
                 variants={SlideUp(1.1)}
@@ -41,7 +42,7 @@ const Hero = () => {
                 animate="animate"
                 className="primary-btn uppercase"
               >
-                Contact Us
+              <Link to="/about">Contact Us</Link>
               </motion.button>
             </div>
           </div>
