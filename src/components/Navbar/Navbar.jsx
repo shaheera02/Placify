@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const NavLinks = [
   {
     id: 1,
-    title: "Home",
+    title: "Homie",
     link: "/",
   },{
     id: 2,

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
-import '../index.css';
+import '../index.css'; 
 
-GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.worker.min.js`;
+GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.worker.min.js';
 
 const extractTextFromPDF = async (file) => {
   const pdfUrl = URL.createObjectURL(file);
@@ -19,6 +19,7 @@ const extractTextFromPDF = async (file) => {
   URL.revokeObjectURL(pdfUrl);
   return text;
 };
+
 
 const ResumeBuilder = () => {
   const [pdfFile, setPdfFile] = useState(null);
@@ -44,8 +45,8 @@ const ResumeBuilder = () => {
     try {
       const extractedText = await extractTextFromPDF(pdfFile);
 
-      const inputText = `
-        **Extracted Resume Text:**
+      const inputText = 
+        `**Extracted Resume Text:**
         ${extractedText}
         
         **Role Looking For:**
@@ -62,10 +63,11 @@ const ResumeBuilder = () => {
         - **Final Thoughts**: Overall assessment and any additional feedback.
         
         Format each section with bold, large headings, and use bullet points or concise sentences where necessary.
-      `;
+      `
+      ;
 
       const response = await axios.post(
-        'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=YOUR_GEMINI_API_KEY',
+        'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=xxx',
         {
           contents: [
             {
@@ -96,11 +98,12 @@ const ResumeBuilder = () => {
 
   const markdownToHtml = (markdown) => {
     let html = markdown
-      .replace(/## (.*?)\n/g, '<h3 class="custom-h3">$1</h3>') // Format headers
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold formatting for strong emphasis
-      .replace(/\*(.*?)\*/g, '<ul><li>$1</li></ul>') // Bullet points for each * item
-      .replace(/<\/ul>\s*<ul>/g, '') // Clean up multiple bullet lists
-      .replace(/\n/g, '<br>'); // Line breaks for paragraph spacing
+      .replace(/## (.*?)\n/g, '<h3 class="custom-h3">$1</h3>')
+      .replace(/# (.*?)\n/g, '<h3 class="custom-h3">$1</h3>')
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.*?)\*/g, '<ul><li>$1</li></ul>')
+      .replace(/<\/ul>\s*<ul>/g, '')
+      .replace(/\n/g, '<br>');
     return html;
   };
 

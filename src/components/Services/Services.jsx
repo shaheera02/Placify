@@ -12,7 +12,7 @@ const ServiceCard = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur",
     icon: <FaVectorSquare />,
-    link: "#",
+    link: "resume",
     delay: 0.2,
   },
   {
@@ -21,16 +21,16 @@ const ServiceCard = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur",
     icon: <FaPenToSquare />,
-    link: "#",
+    link: "chatbot",
     delay: 0.4,
   },
   {
     id: 3,
-    title: "Real-time Data",
+    title: "Job Trends",
     description:
       "Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
     icon: <BiSolidDollarCircle />,
-    link: "#",
+    link: "job",
     delay: 0.6,
   },
 ];
